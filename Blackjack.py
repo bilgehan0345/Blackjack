@@ -2,10 +2,8 @@ from time import sleep
 import random
 class Games:
     def __init__(self):
-        self.cards = ['Maça-A', 'Maça-2', 'Maça-3', 'Maça-4', 'Maça-5', 'Maça-6', 'Maça-7', 'Maça-8', 'Maça-9', 'Maça-10', 'Maça-Bacak', 'Maça-Kız', 'Maça-Papaz', 
-                 'Kare-A', 'Kare-2', 'Kare-3', 'Kare-4', 'Kare-5', 'Kare-6', 'Kare-7', 'Kare-8', 'Kare-9', 'Kare-10', 'Kare-Bacak', 'Kare-Kız', 'Kare-Papaz', 
-                 'Kupa-A', 'Kupa-2', 'Kupa-3', 'Kupa-4', 'Kupa-5', 'Kupa-6', 'Kupa-7', 'Kupa-8', 'Kupa-9', 'Kupa-10', 'Kupa-Bacak', 'Kupa-Kız', 'Kupa-Papaz',
-                 'Sinek-A', 'Sinek-2', 'Sinek-3', 'Sinek-4', 'Sinek-5', 'Sinek-6', 'Sinek-7', 'Sinek-8', 'Sinek-9', 'Sinek-10', 'Sinek-Bacak', 'Sinek-Kız', 'Sinek-Papaz']
+        self.chooseClass = ['Maça','Kare','Kupa','Sinek']
+        self.chooseNumber = ['A','2','3','4','5','6','7','8','9','10','Bacak','Kız','Papaz']
         self.mylist = []
         self.botlist = []
         self.choosedCards = []
@@ -107,14 +105,14 @@ class Games:
                     ACount += 1         
         return sum
     def ChooseCardtoBot(self):
-        botcard = random.choice(self.cards)
+        botcard = f'{random.choice(self.chooseClass)}-{random.choice(self.chooseNumber)}'
         if botcard in self.choosedCards:
             self.ChooseCardtoBot()
         else:
                 self.botlist.append(botcard)
                 self.choosedCards.append(botcard)
     def ChooseCardtoMe(self):
-        mycard = random.choice(self.cards)
+        mycard = f'{random.choice(self.chooseClass)}-{random.choice(self.chooseNumber)}'
         if mycard in self.choosedCards:
             self.ChooseCardtoMe()
         else:
